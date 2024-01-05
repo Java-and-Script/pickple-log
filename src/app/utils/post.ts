@@ -44,7 +44,7 @@ export function getPostDatasByUsername(username: string) {
   return postDatas.filter((postData) => postData.author.name === username);
 }
 
-export function getPostsByCategory(category: string) {
+export function getPostDatasByCategory(category: string) {
   const postDatas = getPostDatas();
   return postDatas.filter((postData) => postData.author.role === category);
 }
