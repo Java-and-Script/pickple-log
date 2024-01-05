@@ -1,7 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { GitHubBadge } from "../GitHubBadge/GitHubBadge";
+import Link from "next/link";
+import Image from "next/image";
+
+import GitHub from "@/assets/github.svg";
 
 export const MemberItem = ({ memberId }: { memberId: string }) => {
   const router = useRouter();
@@ -22,7 +25,9 @@ export const MemberItem = ({ memberId }: { memberId: string }) => {
         </div>
       </div>
       <div className="w-[50px] h-[50px] ml-auto">
-        <GitHubBadge memberId={memberId} />
+        <Link href={`https://github.com/${memberId}`}>
+          <Image src={GitHub} alt="GitHub 로고" />
+        </Link>
       </div>
     </div>
   );

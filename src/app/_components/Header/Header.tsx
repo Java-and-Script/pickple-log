@@ -3,7 +3,7 @@ import Image from "next/image";
 
 import HeaderNavMenu from "./HeaderNavMenu";
 
-import github from "./assets/github.svg";
+import github from "@/assets/github.svg";
 import notion from "./assets/notion.svg";
 import pickple from "./assets/pickple.svg";
 import pickpleLog from "./assets/pickple-log.svg";
