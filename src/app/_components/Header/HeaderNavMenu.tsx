@@ -8,7 +8,7 @@ export default function HeaderNavMenu() {
 
   return (
     <div className="flex gap-5 font-bold text-gray-400 h-6">
-      {segment === null ? (
+      {segment === "(post-tab)" ? (
         <Link href="/" className="border-b border-gray-400">
           게시글
         </Link>
