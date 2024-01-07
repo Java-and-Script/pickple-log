@@ -1,5 +1,6 @@
 import { getPostBySlug } from '@/app/utils';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
 import remarkBreaks from 'remark-breaks';
 import remarkGfm from 'remark-gfm';
@@ -19,7 +20,15 @@ export default function Page({ params }: { params: { slug: string } }) {
               remarkBreaks,
               [remarkToc, { tight: true, maxDepth: 5 }],
             ],
-            rehypePlugins: [rehypeSlug],
+            rehypePlugins: [
+              rehypeSlug,
+              [
+                rehypePrettyCode,
+                {
+                  theme: 'rose-pine',
+                },
+              ],
+            ],
           },
         }}
       />
