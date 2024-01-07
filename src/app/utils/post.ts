@@ -35,8 +35,18 @@ export function getPostDatas() {
     return { slug: fileSlug, author: user, ...data };
   });
 
-  cachedPostDatas = postDatas;
-  return postDatas;
+  const sortedPostDatas = postDatas.toSorted((a, b) => {
+    const aTime = new Date(a.date).getTime();
+    const bTime = new Date(b.date).getTime();
+    if (isNaN(aTime + bTime)) {
+      throw new Error('invalid post date');
+    }
+
+    return bTime - aTime;
+  });
+
+  cachedPostDatas = sortedPostDatas;
+  return sortedPostDatas;
 }
 
 export function getPostDatasByUsername(username: string) {
