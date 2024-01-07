@@ -7,7 +7,7 @@ import github from "@/assets/github.svg";
 import notion from "./assets/notion.svg";
 import pickple from "./assets/pickple.svg";
 import pickpleLog from "./assets/pickple-log.svg";
-import DarkModeButton from "../DartModeButton/DarkModeButton";
+import DarkModeButton from "../DarkModeButton/DarkModeButton";
 
 export default function Header() {
   return (

@@ -20,9 +20,11 @@ export default function PostItem({
     date.getMonth() + 1
   }-${date.getDate()}`;
   return (
-    <Link href={`/post/${articleName}`} className="flex flex-col gap-3">
-      <h1 className="font-bold truncate">{title}</h1>
-      <p className="truncate">{detail}</p>
+    <div className="flex flex-col gap-3">
+      <Link href={`/post/${articleName}`}>
+        <h1 className="font-bold truncate">{title}</h1>
+        <p className="truncate">{detail}</p>
+      </Link>
       <div className="w-full flex justify-between items-center">
         <Link
           href={`https://github.com/${author}`}
@@ -37,6 +39,6 @@ export default function PostItem({
         </Link>
         <p className="text-gray-300 items-center">{dateString}</p>
       </div>
-    </Link>
+    </div>
   );
 }

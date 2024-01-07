@@ -21,11 +21,16 @@ export default function DarkModeButton() {
   };
 
   useEffect(() => {
-    setTheme(getStorage(THEME_KEY));
+    if (getStorage(THEME_KEY)) {
+      setTheme(getStorage(THEME_KEY));
+    } else {
+      setStorage(THEME_KEY, LIGHT_THEME);
+      setTheme(LIGHT_THEME);
+    }
   }, []);
 
   useEffect(() => {
-    if (getStorage(THEME_KEY) === DARK_THEME) {
+    if (theme === DARK_THEME) {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
