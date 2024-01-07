@@ -17,7 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body className={inter.className + " min-h-dvh"}>
+      <body
+        className={
+          inter.className + " min-h-dvh bg-white dark:bg-black dark:text-white"
+        }
+      >
         <Header />
         <div className="max-w-[800px] mx-auto">{children}</div>
       </body>
