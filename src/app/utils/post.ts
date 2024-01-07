@@ -1,7 +1,7 @@
+import { getUsers } from '.';
 import { Post, PostData } from '@/type/Post';
 import { readFileSync, readdirSync } from 'fs';
 import matter from 'gray-matter';
-import { getUsers } from '.';
 
 let cachedPostDatas: PostData[] = [];
 
@@ -35,7 +35,7 @@ export function getPostDatas() {
     return { slug: fileSlug, author: user, ...data };
   });
 
-  const sortedPostDatas = postDatas.toSorted((a, b) => {
+  const sortedPostDatas = postDatas.slice().sort((a, b) => {
     const aTime = new Date(a.date).getTime();
     const bTime = new Date(b.date).getTime();
     if (isNaN(aTime + bTime)) {
