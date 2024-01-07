@@ -1,5 +1,6 @@
 import { getPostBySlug } from '@/app/utils';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
 
 export default function Page({ params }: { params: { slug: string } }) {
   const mdxSource = getPostBySlug(params.slug).content;
@@ -10,7 +11,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         options={{
           mdxOptions: {
             useDynamicImport: true,
-            remarkPlugins: [],
+            remarkPlugins: [remarkGfm],
             rehypePlugins: [],
           },
         }}
