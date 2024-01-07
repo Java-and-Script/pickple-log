@@ -4,6 +4,28 @@ date: '2023-12-11'
 spoiler: 'The limits of my language mean the limits of my world.'
 ---
 
+# Pluto
+
+Pluto is a dwarf planet in the Kuiper belt.
+
+## Contents
+
+## History
+
+### Discovery
+
+In the 1840s, Urbain Le Verrier used Newtonian mechanics to predict the
+position of…
+
+### Name and symbol
+
+The name Pluto is for the Roman god of the underworld, from a Greek epithet for
+Hades…
+
+### Planet X disproved
+
+Once Pluto was found, its faintness and lack of a viewable disc cast doubt…
+
 | 기본값 | 왼쪽 정렬 | 가운데 정렬 | 오른쪽 정렬 |
 | ------ | :-------- | :---------: | ----------: |
 | 내용 1 | 내용 2    |   내용 3    |      내용 4 |
@@ -95,6 +117,10 @@ into this:
   Hello, <i>Alice</i>!
 </p>
 ```
+
+## Orbit
+
+Pluto’s orbital period is about 248 years…
 
 How would I go about that?
 
