@@ -1,5 +1,20 @@
-import { getUsers } from '../utils';
+import { getUsers } from "../utils";
+import { MemberItem } from "../_components/MemberItem";
 
 export default function Page() {
-  return <div>{JSON.stringify(getUsers())}</div>;
+  const users = getUsers();
+
+  return (
+    <div>
+      {users.map((user) => (
+        <MemberItem
+          key={user.name}
+          name={user.name}
+          image={user.image}
+          github={user.github}
+          introduce={user.introduce}
+        />
+      ))}
+    </div>
+  );
 }
