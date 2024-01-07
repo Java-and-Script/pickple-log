@@ -3,7 +3,7 @@ import { PostTab } from './_components/PostTab';
 
 export default function Layout({ children }: PropsWithChildren) {
   return (
-    <div>
+    <div className="flex flex-col gap-2">
       <PostTab />
       {children}
     </div>
