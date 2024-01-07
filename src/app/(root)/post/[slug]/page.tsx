@@ -1,5 +1,11 @@
 import { getPostBySlug } from '@/app/utils';
+import { MDXRemote } from 'next-mdx-remote/rsc';
 
 export default function Page({ params }: { params: { slug: string } }) {
-  return <div>{getPostBySlug(params.slug).content}</div>;
+  const mdxSource = getPostBySlug(params.slug).content;
+  return (
+    <div>
+      <MDXRemote source={mdxSource} />
+    </div>
+  );
 }
