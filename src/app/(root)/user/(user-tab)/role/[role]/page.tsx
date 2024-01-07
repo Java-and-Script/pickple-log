@@ -1,8 +1,8 @@
-import { getUsers } from "../utils";
-import { MemberItem } from "../_components/MemberItem";
+import { MemberItem } from '@/app/_components/MemberItem';
+import { getUsersByRole } from '@/app/utils';
 
-export default function Page() {
-  const users = getUsers();
+export default function Page({ params }: { params: { role: string } }) {
+  const users = getUsersByRole(params.role);
 
   return (
     <div>

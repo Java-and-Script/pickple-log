@@ -1,5 +1,5 @@
-import PostItem from "./_components/PostItem";
-import { getPostDatas } from "./utils";
+import PostItem from '@/app/_components/PostItem';
+import { getPostDatas } from '@/app/utils';
 
 export default function Home() {
   const postDatas = getPostDatas();
