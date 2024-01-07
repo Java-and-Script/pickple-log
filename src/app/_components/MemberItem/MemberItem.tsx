@@ -16,7 +16,7 @@ export const MemberItem = ({
   const router = useRouter();
   return (
     <div
-      className="bg-white flex items-center gap-[24px] max-w-[800px] mx-auto h-[98px] pt-[26px] pb-[26px] pr-[26px] cursor-pointer"
+      className="bg-white dark:bg-black flex items-center gap-[24px] max-w-[800px] mx-auto h-[98px] pt-[26px] pb-[26px] pr-[26px] cursor-pointer"
       onClick={() => router.push(`user/${name}`)}
     >
       <div className="w-[50px] h-[50px] border-solid border-[1px] rounded-[100%] border-[#9ca3af] overflow-hidden">

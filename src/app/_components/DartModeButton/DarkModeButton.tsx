@@ -10,16 +10,19 @@ const LIGHT_THEME = "light";
 const DARK_THEME = "dark";
 
 export default function DarkModeButton() {
-  const [theme, setTheme] = useState<string | null>(getStorage(THEME_KEY));
+  const [theme, setTheme] = useState<string | null>(null);
 
   const toggleDarkMode = () => {
     setTheme((prev) => {
       const newTheme = prev === LIGHT_THEME ? DARK_THEME : LIGHT_THEME;
       setStorage(THEME_KEY, newTheme);
-
       return newTheme;
     });
   };
+
+  useEffect(() => {
+    setTheme(getStorage(THEME_KEY));
+  }, []);
 
   useEffect(() => {
     if (getStorage(THEME_KEY) === DARK_THEME) {
