@@ -12,4 +12,4 @@ jobs:
     steps:
       - run: gh api /repos/1eecan/pickple-log/dispatches -f event_type='dispatch_event'
         env:
-          GITHUB_TOKEN: ${{ secrets.ACTION_TOKEN }}
+          GH_TOKEN: ${{ secrets.ACTION_TOKEN }}
