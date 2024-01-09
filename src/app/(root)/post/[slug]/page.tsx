@@ -1,4 +1,4 @@
-import { getPostBySlug } from '@/app/utils';
+import { getPostBySlug, getPostDatas } from '@/app/utils';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypePrettyCode from 'rehype-pretty-code';
 import rehypeSlug from 'rehype-slug';
@@ -34,4 +34,11 @@ export default function Page({ params }: { params: { slug: string } }) {
       />
     </div>
   );
+}
+
+export function generateStaticParams() {
+  const posts = getPostDatas();
+  return posts.map(({ slug }) => ({
+    slug,
+  }));
 }
