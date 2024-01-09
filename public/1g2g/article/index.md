@@ -1,8 +1,36 @@
 ---
-title: "A Chain Reaction"
-date: "2023-12-11"
-spoiler: "The limits of my language mean the limits of my world."
+title: 'A Chain Reaction'
+date: '2023-12-11'
+spoiler: 'The limits of my language mean the limits of my world.'
 ---
+
+# Pluto
+
+Pluto is a dwarf planet in the Kuiper belt.
+
+## Contents
+
+## History
+
+### Discovery
+
+In the 1840s, Urbain Le Verrier used Newtonian mechanics to predict the
+position of…
+
+### Name and symbol
+
+The name Pluto is for the Roman god of the underworld, from a Greek epithet for
+Hades…
+
+### Planet X disproved
+
+Once Pluto was found, its faintness and lack of a viewable disc cast doubt…
+
+| 기본값 | 왼쪽 정렬 | 가운데 정렬 | 오른쪽 정렬 |
+| ------ | :-------- | :---------: | ----------: |
+| 내용 1 | 내용 2    |   내용 3    |      내용 4 |
+| 내용 5 | 내용 6    |   내용 7    |      내용 8 |
+| 내용 9 | 내용 10   |   내용 11   |     내용 12 |
 
 I wrote a bit of JSX in my editor:
 
@@ -90,6 +118,10 @@ into this:
 </p>
 ```
 
+## Orbit
+
+Pluto’s orbital period is about 248 years…
+
 How would I go about that?
 
 ---
@@ -100,7 +132,7 @@ For example, `alice` does not mean anything until I define `alice`:
 
 ```js
 const alice = {
-  firstName: "Alice",
+  firstName: 'Alice',
   birthYear: 1970,
 };
 ```
@@ -161,7 +193,7 @@ function Greeting({ person }) {
 }
 
 const alice = {
-  firstName: "Alice",
+  firstName: 'Alice',
   birthYear: 1970,
 };
 
@@ -243,7 +275,7 @@ function Greeting({ person }) {
 }
 
 const alice = {
-  firstName: "Alice",
+  firstName: 'Alice',
   birthYear: 1970,
 };
 
@@ -316,9 +348,9 @@ Let's split the logic in two cases, and skip translating the built-ins for now:
 ```js {3,5-7}
 function translateForBrowser(originalJSX) {
   const { type, props } = originalJSX;
-  if (typeof type === "function") {
+  if (typeof type === 'function') {
     return type(props);
-  } else if (typeof type === "string") {
+  } else if (typeof type === 'string') {
     return originalJSX;
   }
 }
@@ -351,9 +383,9 @@ Let's fix `translateForBrowser` to translate any built-in tag's children:
 ```js {6-12}
 function translateForBrowser(originalJSX) {
   const { type, props } = originalJSX;
-  if (typeof type === "function") {
+  if (typeof type === 'function') {
     return type(props);
-  } else if (typeof type === "string") {
+  } else if (typeof type === 'string') {
     return {
       type,
       props: {
@@ -424,10 +456,10 @@ Luckily, there is an easy way I can solve this. When I call a function like `Exp
 ```js {4-5}
 function translateForBrowser(originalJSX) {
   const { type, props } = originalJSX;
-  if (typeof type === "function") {
+  if (typeof type === 'function') {
     const returnedJSX = type(props);
     return translateForBrowser(returnedJSX);
-  } else if (typeof type === "string") {
+  } else if (typeof type === 'string') {
     return {
       type,
       props: {
@@ -443,17 +475,17 @@ I also need to stop the process when there's nothing left to translate, like if 
 
 ```js {2-7}
 function translateForBrowser(originalJSX) {
-  if (originalJSX == null || typeof originalJSX !== "object") {
+  if (originalJSX == null || typeof originalJSX !== 'object') {
     return originalJSX;
   }
   if (Array.isArray(originalJSX)) {
     return originalJSX.map(translateForBrowser);
   }
   const { type, props } = originalJSX;
-  if (typeof type === "function") {
+  if (typeof type === 'function') {
     const returnedJSX = type(props);
     return translateForBrowser(returnedJSX);
-  } else if (typeof type === "string") {
+  } else if (typeof type === 'string') {
     return {
       type,
       props: {
