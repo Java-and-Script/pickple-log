@@ -12,7 +12,7 @@ export function getPostDatas() {
 
   const users = getUsers();
   const fileEntries = users.map(({ name }) =>
-    readdirSync(`./public/${name}`, {
+    readdirSync(`./${name}`, {
       withFileTypes: true,
     })
   );
@@ -24,7 +24,7 @@ export function getPostDatas() {
   });
 
   const fileContents = fileDirs.map((dir) =>
-    readFileSync(`./public/${dir}/index.md`, 'utf8')
+    readFileSync(`./${dir}/index.md`, 'utf8')
   );
 
   const postDatas: PostData[] = fileDirs.map((slug, i) => {
@@ -67,7 +67,7 @@ export function getPostBySlug(slug: string): Post {
   }
 
   const fileContent = readFileSync(
-    `./public/${postData.author.name}/${postData.slug}/index.md`,
+    `./${postData.author.name}/${postData.slug}/index.md`,
     'utf8'
   );
   const { content } = matter(fileContent);

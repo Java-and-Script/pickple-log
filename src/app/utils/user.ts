@@ -9,14 +9,14 @@ export function getUsers() {
     return cachedUsers;
   }
 
-  const userDirs = readdirSync(`./public`, {
+  const userDirs = readdirSync(`./`, {
     withFileTypes: true,
   })
     .filter((entry) => entry.isDirectory())
     .map((entry) => entry.name);
 
   const userContents = userDirs.map((dir) =>
-    readFileSync(`./public/${dir}/index.md`, 'utf8')
+    readFileSync(`./${dir}/index.md`, 'utf8')
   );
 
   const users: User[] = userDirs.map((name, i) => {
