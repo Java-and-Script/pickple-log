@@ -18,3 +18,7 @@ export default function Page({ params }: { params: { role: string } }) {
     </div>
   );
 }
+
+export function generateStaticParams() {
+  return [{ role: 'fe' }, { role: 'be' }];
+}
