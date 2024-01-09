@@ -1,7 +1,10 @@
+import { PostItemList } from '@/app/_components/PostItemList';
 import { getPostDatasByUsername, getUsers } from '@/app/utils';
 
 export default function Page({ params }: { params: { username: string } }) {
-  return <div>{JSON.stringify(getPostDatasByUsername(params.username))}</div>;
+  const postDatas = getPostDatasByUsername(params.username);
+
+  return <PostItemList postDatas={postDatas} />;
 }
 
 export function generateStaticParams() {
