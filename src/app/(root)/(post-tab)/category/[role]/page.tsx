@@ -1,4 +1,4 @@
-import { PostItemList } from '../../_components/PostItemList';
+import { PostItemList } from '@/app/_components/PostItemList';
 import { getPostDatasByCategory } from '@/app/utils';
 
 export default function Page({ params }: { params: { role: string } }) {
