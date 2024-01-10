@@ -1,3 +1,4 @@
+import ProgressBar from './ProgressBar';
 import { getPostBySlug, getPostDatas } from '@/app/utils';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypePrettyCode from 'rehype-pretty-code';
@@ -8,8 +9,10 @@ import remarkToc from 'remark-toc';
 
 export default function Page({ params }: { params: { slug: string } }) {
   const mdxSource = getPostBySlug(params.slug).content;
+
   return (
     <div className="prose dark:text-white">
+      <ProgressBar />
       <MDXRemote
         source={mdxSource}
         options={{
@@ -18,7 +21,7 @@ export default function Page({ params }: { params: { slug: string } }) {
             remarkPlugins: [
               remarkGfm,
               remarkBreaks,
-              [remarkToc, { tight: true, maxDepth: 5 }],
+              [remarkToc, { tight: true, maxDepth: 3 }],
             ],
             rehypePlugins: [
               rehypeSlug,
