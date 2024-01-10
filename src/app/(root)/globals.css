@@ -5,3 +5,31 @@
 html {
   scroll-behavior: smooth;
 }
+html::-webkit-scrollbar {
+  display: none;
+}
+
+#contents {
+  display: none;
+}
+
+#contents + ul {
+  position: fixed;
+  right: 0px;
+  width: 20%;
+  height: 100%;
+  font-size: 1rem;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+#contents + ul::-webkit-scrollbar {
+  display: none;
+}
+
+#contents + ul li {
+  list-style-type: none;
+}
+#contents + ul a {
+  text-decoration: none;
+}
