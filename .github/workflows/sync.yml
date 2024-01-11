@@ -1,0 +1,32 @@
+name: Synchronize to forked repo
+on:
+  push:
+    branches:
+      - dev
+
+jobs:
+  sync:
+    name: Sync forked repo
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with: 
+          token: ${{ secrets.ACTION_TOKEN }}
+          fetch-depth: 0
+          ref: dev
+
+      - name: Add remote-url
+        run: |
+          git remote add forked-repo https://1eecan:${{ secrets.ACTION_TOKEN }}@github.com/1eecan/pickple-log
+          git config user.name 1eecan
+          git config user.email busyx2modernsociety@gmail.com
+      
+      - name: Push changes to forked-repo 
+        run: |
+          git push -f forked-repo dev
+      
+      - name: Clean up
+        run: |
+          git remote remove forked-repo
