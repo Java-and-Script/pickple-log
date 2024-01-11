@@ -33,3 +33,10 @@ export function getUsersByRole(role: string) {
   const users = getUsers();
   return users.filter((user) => user.role === role);
 }
+
+export function getUser(name: string) {
+  const userContent = readFileSync(`./public/${name}/index.md`, 'utf8');
+  const { data } = matter(userContent) as any;
+
+  return { name, ...data };
+}

@@ -1,11 +1,10 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-import Link from 'next/link';
-import Image from 'next/image';
-
 import GitHub from '@/assets/github.svg';
 import { User } from '@/type/User';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export const MemberItem = ({
   name,
@@ -16,7 +15,7 @@ export const MemberItem = ({
   const router = useRouter();
   return (
     <div
-      className="flex items-center gap-[24px] max-w-[800px] mx-auto h-[98px] pt-[26px] pb-[26px] pr-[26px] cursor-pointer "
+      className="flex items-center gap-[24px] w-[100%] mx-auto h-[98px] pt-[26px] pb-[26px] cursor-pointer"
       onClick={() => router.push(`/user/${name}`)}
     >
       <div className="w-[50px] h-[50px] border-solid border-[1px] rounded-[100%] border-[#9ca3af] overflow-hidden">
