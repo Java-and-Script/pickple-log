@@ -2,7 +2,7 @@ name: Synchronize to forked repo
 on:
   push:
     branches:
-      - dev
+      - main
 
 jobs:
   sync:
@@ -15,17 +15,17 @@ jobs:
         with: 
           token: ${{ secrets.ACTION_TOKEN }}
           fetch-depth: 0
-          ref: dev
+          ref: main
 
       - name: Add remote-url
         run: |
-          git remote add forked-repo https://1eecan:${{ secrets.ACTION_TOKEN }}@github.com/1eecan/pickple-log
-          git config user.name 1eecan
-          git config user.email busyx2modernsociety@gmail.com
+          git remote add forked-repo https://dlwl98:${{ secrets.ACTION_TOKEN }}@github.com/dlwl98/pickple-log
+          git config user.name dlwl98
+          git config user.email ff981113@hanyang.ac.kr
       
       - name: Push changes to forked-repo 
         run: |
-          git push -f forked-repo dev
+          git push -f forked-repo main
       
       - name: Clean up
         run: |
